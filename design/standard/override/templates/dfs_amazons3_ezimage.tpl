@@ -67,7 +67,7 @@ Input:
             {set $inline_style = concat( $inline_style, 'margin: ', $margin_size, 'px;' )}
         {/if}
         {if $href}<a href={$href}{if and( is_set( $link_class ), $link_class )} class="{$link_class}"{/if}{if and( is_set( $link_id ), $link_id )} id="{$link_id}"{/if}{if $target} target="{$target}"{/if}{if and( is_set( $link_title ), $link_title )} title="{$link_title|wash}"{/if}>{/if}
-        <img src="http://s3-eu-west-1.amazonaws.com/{ezini( 'DFSBackend_amazonS3', 'Bucket')}/{$image.url}" width="{$image.width}" height="{$image.height}" {if $hspace}hspace="{$hspace}"{/if} style="{$inline_style}" alt="{$alt_text|wash(xhtml)}" title="{$title|wash(xhtml)}" />
+        <img src="http://s3-eu-west-1.amazonaws.com/{ezini( 'DFSBackend_amazonS3', 'Bucket', 'file.ini' )}/{$image.url}" width="{$image.width}" height="{$image.height}" {if $hspace}hspace="{$hspace}"{/if} style="{$inline_style}" alt="{$alt_text|wash(xhtml)}" title="{$title|wash(xhtml)}" />
         {if $href}</a>{/if}
     {/if}
 
