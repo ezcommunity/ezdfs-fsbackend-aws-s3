@@ -7,7 +7,7 @@
  * @version //autogentag//
  */
 
-use Aws\S3\S3Client;
+use \Aws\Common\Client\AwsClientInterface as S3Client;
 use Aws\S3\Exception\S3Exception;
 
 class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface
@@ -50,7 +50,7 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface
 
     public function supports( $path )
     {
-        // @todo no need to say what nor why
+        // @todo no need to say what nor why... and now I forgot.
         return strstr( $path, $this->supportedPath ) !== false;
     }
 
