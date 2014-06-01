@@ -10,7 +10,7 @@
 use \Aws\Common\Client\AwsClientInterface as S3Client;
 use Aws\S3\Exception\S3Exception;
 
-class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface
+class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, eZDFSFileHandlerDFSBackendFactoryInterface
 {
     /** @var Aws\S3\S3Client */
     private $s3client;
@@ -18,20 +18,16 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface
     /** @var string */
     private $bucket;
 
-    /** @var string */
-    private $supportedPath;
-
-    public function __construct( S3Client $s3client, $bucket, $supportedPath )
+    public function __construct( S3Client $s3client, $bucket )
     {
         $this->s3client = $s3client;
         $this->bucket = $bucket;
-        $this->supportedPath = $supportedPath;
     }
 
     /**
      * @return self
      */
-    public static function factory()
+    public static function build()
     {
         $ini = eZINI::instance( 'file.ini' );
         $parameters = $ini->group( "DFSBackend_amazonS3" );
@@ -45,13 +41,7 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface
             $options['region'] = $parameters['Region'];
         }
 
-        return new self( S3Client::factory( $options ), $parameters['Bucket'], $parameters['Prefix'] );
-    }
-
-    public function supports( $path )
-    {
-        // @todo no need to say what nor why... and now I forgot.
-        return strstr( $path, $this->supportedPath ) !== false;
+        return new self( S3Client::factory( $options ), $parameters['Bucket'] );
     }
 
     /**
