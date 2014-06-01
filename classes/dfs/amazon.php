@@ -304,4 +304,9 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
             return false;
         }
     }
+
+    public function getFilesList( $basePath )
+    {
+        // TODO: Implement getFilesList() method.
+    }
 }
