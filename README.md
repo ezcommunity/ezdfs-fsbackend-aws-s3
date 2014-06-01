@@ -12,23 +12,18 @@ An amazonS3 handler is provided, that can be configured to store images.
 
 ## Configuration
 
-The default configuration can be seen in file.ini, and can be modified in an override.
+The handler must first be configured in an `dfsamazons3.ini` override:
+```ini
+[BackendSettings]
+AccessKeyID=
+SecretAccessKey=
+Bucket=
+Region=
+```
 
-A typical configuration would look like this:
+It must then be be set as an additional handler matching one or several path in a `dispatchabledfs.ini` override:
 
 ```ini
-[eZDFSClusteringSettings]
-# Usual DFS configuration
-
-DFSBackends[]
-DFSBackends[]=amazonS3
-DFSBackends[]=dfs
-
-[DFSBackend_amazonS3]
-Class=eZDFSFileHandlerDFSAmazon
-FactoryMethod=factory
-AccessKeyID=MyAccessKey
-SecretAccessKey=MySecretKey
-Bucket=bucket.name
-Region=eu-west-1
-Prefix=var/ezdemo_site/storage/images
+[DispatchableDFS]
+PathBackends[var/ezdemo_site/storage/images]=eZDFSFileHandlerDFSAmazon
+```
