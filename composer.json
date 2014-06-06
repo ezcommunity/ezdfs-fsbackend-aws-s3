@@ -15,8 +15,8 @@
     ],
     "require": {
         "ezsystems/ezpublish-legacy-installer": "*",
-        "ezsystems/ezdispatchabledfs": "@dev",
-        "aws/aws-sdk-php": "*"
+        "ezsystems/ezdfs-fsbackend-dispatcher": "1.0.*-dev",
+        "aws/aws-sdk-php": "2.6.*"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",
