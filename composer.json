@@ -1,5 +1,5 @@
 {
-    "name": "ezsystems/ezdfsfsbackend-aws-s3",
+    "name": "ezsystems/ezdfs-fsbackend-aws-s3",
     "description": "eZPublish Amazon S3 FS backend for DFS",
     "type": "ezpublish-legacy-extension",
     "license": "GPL-2.0",
