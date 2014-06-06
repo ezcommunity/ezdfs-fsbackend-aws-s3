@@ -1,18 +1,21 @@
 {
-    "name": "bdunogier/ezdfsamazons3",
-    "description": "Amazon S3 DFS backend",
+    "name": "ezsystems/ezdfsfsbackend-aws-s3",
+    "description": "eZPublish Amazon S3 FS backend for DFS",
     "type": "ezpublish-legacy-extension",
     "license": "GPL-2.0",
     "authors": [
         {
             "name": "Bertrand Dunogier",
             "homepage": "https://github.com/bdunogier/ezamazons3"
+        },
+        {
+            "name": "eZ Systems",
+            "homepage": "http://ez.no"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "ezsystems/ezpublish-legacy-installer": "*",
-        "ezsystems/ezdispatchabledfs": "*",
+        "ezsystems/ezdispatchabledfs": "@dev",
         "aws/aws-sdk-php": "*"
     },
     "require-dev": {
@@ -20,6 +23,6 @@
         "mockery/mockery": "dev-master"
     },
     "extra": {
-        "ezpublish-legacy-extension-name": "ezie"
+        "ezpublish-legacy-extension-name": "ezdfs-fsbackend-aws-s3"
     }
 }
