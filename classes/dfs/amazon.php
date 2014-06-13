@@ -306,6 +306,10 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
 
     public function getFilesList( $basePath )
     {
-        // TODO: Implement getFilesList() method.
+        return new eZDFSFileHandlerDFSAmazonFilterIterator(
+            $this->s3client->getIterator(
+                'ListObjects', array( 'Bucket' => $this->bucket, 'Prefix' => $basePath )
+            )
+        );
     }
 }
