@@ -140,7 +140,6 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
      *        Single local filename, or array of local filenames
      *
      * @return bool true if deletion was successful, false otherwise
-     * @todo Improve error handling using exceptions
      */
     public function delete( $filePath )
     {
@@ -182,7 +181,6 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
      * @param string $filePath local file path
      *
      * @return binary|bool file's content, or false
-     * @todo Handle errors using exceptions
      */
     public function getContents( $filePath )
     {
