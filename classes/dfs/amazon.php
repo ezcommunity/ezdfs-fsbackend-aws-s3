@@ -7,7 +7,7 @@
  * @version //autogentag//
  */
 
-use \Aws\Common\Client\AwsClientInterface as S3Client;
+use Aws\S3\S3Client as S3Client;
 use Aws\S3\Exception\S3Exception;
 
 class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, eZDFSFileHandlerDFSBackendFactoryInterface
@@ -163,6 +163,7 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
 
     /**
      * Sends the contents of $filePath to default output
+     * Does NOT support $startOffset and $length yet
      *
      * @param string   $filePath File path
      * @param int      $startOffset Starting offset
@@ -172,7 +173,7 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
      */
     public function passthrough( $filePath, $startOffset = 0, $length = false )
     {
-        // TODO: Implement passthrough() method.
+        echo $this->getContents( $filePath );
     }
 
     /**
