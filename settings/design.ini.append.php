@@ -1,4 +1,4 @@
 <?php /*
 
 [ExtensionSettings]
-DesignExtensions[]=ezdfsamazons3
+DesignExtensions[]=ezdfs-fsbackend-aws-s3
