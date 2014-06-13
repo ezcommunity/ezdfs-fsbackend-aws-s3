@@ -29,8 +29,8 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
      */
     public static function build()
     {
-        $ini = eZINI::instance( 'file.ini' );
-        $parameters = $ini->group( "DFSBackend_amazonS3" );
+        $ini = eZINI::instance( 'dfsamazons3.ini' );
+        $parameters = $ini->group( "DFSBackendSettings" );
 
         $options = array(
             'key' => $parameters['AccessKeyID'],
