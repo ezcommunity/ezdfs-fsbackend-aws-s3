@@ -309,4 +309,18 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
     {
         // TODO: Implement getFilesList() method.
     }
+
+    /**
+     * Returns the server URL for $filePath
+     *
+     * @param string $filePath
+     *
+     * @return string|bool Server url, or false if none applies
+     */
+    public function getServerUrl( $filePath )
+    {
+        return 'https://s3-eu-west-1.amazonaws.com/dunogier.bertrand.test';
+    }
+
+
 }
