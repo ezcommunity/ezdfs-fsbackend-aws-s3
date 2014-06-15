@@ -18,10 +18,14 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
     /** @var string */
     private $bucket;
 
-    public function __construct( S3Client $s3client, $bucket )
+    /** @var string */
+    private $httpHost;
+
+    public function __construct( S3Client $s3client, $bucket, $httpHost )
     {
         $this->s3client = $s3client;
         $this->bucket = $bucket;
+        $this->httpHost = $httpHost;
     }
 
     /**
@@ -36,12 +40,10 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
             'key' => $parameters['AccessKeyID'],
             'secret' => $parameters['SecretAccessKey']
         );
-        if ( isset( $parameters['Region'] ) && $parameters['Region'] )
-        {
-            $options['region'] = $parameters['Region'];
-        }
+        $options['region'] = $parameters['Region'];
+        $httpHost = 's3-' . $parameters['Region'] . '.amazonaws.com';
 
-        return new self( S3Client::factory( $options ), $parameters['Bucket'] );
+        return new self( S3Client::factory( $options ), $parameters['Bucket'], $httpHost );
     }
 
     /**
@@ -310,5 +312,13 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
                 'ListObjects', array( 'Bucket' => $this->bucket, 'Prefix' => $basePath )
             )
         );
+    }
+
+    /**
+     * Append the S3 http host plus the bucket to the URI
+     */
+    public function applyServerUri( $filePath )
+    {
+        return sprintf( 'http://%s/%s/%s', $this->httpHost, $this->bucket, $filePath );
     }
 }
