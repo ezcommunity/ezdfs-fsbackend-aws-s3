@@ -115,7 +115,6 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
     {
         try
         {
-            eZDebug::writeDebug( "Putting object w/ key " . $dstFilePath ? : $srcFilePath );
             $this->s3client->putObject(
                 array(
                     'Bucket' => $this->bucket,
