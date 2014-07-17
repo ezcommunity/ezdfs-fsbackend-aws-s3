@@ -10,6 +10,18 @@ a file path.
 
 An amazonS3 handler is provided, that can be configured to store images.
 
+## Installation
+
+### Requirements
+- ezsystems/ezdfs-fsbackend-dispatcher must installed
+- an amazon web services account
+
+### Installation using composer
+From the eZ Publish Community/Platform root, run
+```
+$ composer require ezsystems/ezdfs-fsbackend-aws-s3:~1.0@beta
+```
+
 ## Configuration
 
 The handler must first be configured in an `dfsamazons3.ini` override:
