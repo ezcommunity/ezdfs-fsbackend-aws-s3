@@ -24,7 +24,7 @@ $ composer require ezsystems/ezdfs-fsbackend-aws-s3:~1.0@beta
 
 ## Configuration
 
-The handler must first be configured in an `dfsamazons3.ini` override:
+The handler must first be configured in an `dfsamazons3.ini` override. Region must be set to the region code, as listed on http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region: `eu-west-1`, `us-east-1`... :
 ```ini
 [BackendSettings]
 AccessKeyID=
