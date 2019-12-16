@@ -38,12 +38,13 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
 
         $options = array(
             'key' => $parameters['AccessKeyID'],
-            'secret' => $parameters['SecretAccessKey']
+            'secret' => $parameters['SecretAccessKey'],
+            'version' => 'latest',
         );
         $options['region'] = $parameters['Region'];
         $httpHost = 's3-' . $parameters['Region'] . '.amazonaws.com';
 
-        return new self( S3Client::factory( $options ), $parameters['Bucket'], $httpHost );
+        return new self( new S3Client( $options ), $parameters['Bucket'], $httpHost );
     }
 
     /**
