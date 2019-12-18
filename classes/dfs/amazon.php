@@ -322,6 +322,6 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
      */
     public function applyServerUri( $filePath )
     {
-        return sprintf( 'http://%s/%s/%s', $this->httpHost, $this->bucket, $filePath );
+        return $this->s3client->getObjectUrl($this->bucket, $filePath);
     }
 }
