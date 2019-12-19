@@ -13,7 +13,7 @@ An AmazonS3 handler is provided, that can be configured to store images.
 ## Installation
 
 ### Requirements
-- [ezsystems/ezdfs-fsbackend-dispatcher](https://github.com/ezcommunity/ezdfs-fsbackend-dispatcher) must installed
+- [ezsystems/ezdfs-fsbackend-dispatcher](https://github.com/ezcommunity/ezdfs-fsbackend-dispatcher) must be installed
 - An amazon web services account, with `AmazonS3FullAccess` permissions like [eZ Platform's S3 IO handler](https://doc.ezplatform.com/en/latest/guide/clustering_aws_s3/#toc)
 - ezsystems/ezpublish-legacy >= v2017.12 _(Or any ezpublish 5+ version with the patch: https://github.com/ezsystems/ezpublish-legacy/pull/1449/files)_
 
