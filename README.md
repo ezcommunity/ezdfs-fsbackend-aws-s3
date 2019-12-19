@@ -15,11 +15,12 @@ An amazonS3 handler is provided, that can be configured to store images.
 ### Requirements
 - ezsystems/ezdfs-fsbackend-dispatcher must installed
 - an amazon web services account
+- ezsystems/ezpublish-legacy >= v2017.12 (Or any ezpublish version with the patch: https://github.com/ezsystems/ezpublish-legacy/pull/1449/files)
 
 ### Installation using composer
 From the eZ Publish Community/Platform root, run
 ```
-$ composer require ezsystems/ezdfs-fsbackend-aws-s3:~1.0@beta
+$ composer require ezsystems/ezdfs-fsbackend-aws-s3:~2.0.x-dev
 ```
 
 ## Configuration
@@ -38,4 +39,18 @@ It must then be be set as an additional handler matching one or several path in 
 ```ini
 [DispatchableDFS]
 PathBackends[var/ezdemo_site/storage/images]=eZDFSFileHandlerDFSAmazon
+```
+
+## Known issues
+
+When setting up Legacy Bridge, don't forget to follow the documentation here: https://doc.ezplatform.com/en/latest/guide/clustering_aws_s3/ . 
+
+If your images are not proper display, check the value of `url_prefix`:
+
+```
+ezpublish:
+    system:
+        default:
+            io:
+                url_prefix: 'https://my-bucket.s3.my-region.amazonaws.com/$var_dir$/$storage_dir$'
 ```
