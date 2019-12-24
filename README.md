@@ -32,6 +32,7 @@ AccessKeyID=
 SecretAccessKey=
 Bucket=
 Region=
+Version=
 ```
 
 It must then be be set as an additional handler matching one or several path in a `dispatchabledfs.ini` override:

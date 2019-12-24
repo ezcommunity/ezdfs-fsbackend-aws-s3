@@ -41,7 +41,7 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
                 'key' => $parameters['AccessKeyID'],
                 'secret' => $parameters['SecretAccessKey'],
             ],
-            'version' => 'latest'
+            'version' => $parameters['Version']
         );
         $options['region'] = $parameters['Region'];
         $httpHost = 's3-' . $parameters['Region'] . '.amazonaws.com';
