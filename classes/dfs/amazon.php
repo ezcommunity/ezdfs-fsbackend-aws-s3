@@ -36,13 +36,16 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
         $ini = eZINI::instance( 'dfsamazons3.ini' );
         $parameters = $ini->group( "BackendSettings" );
 
-        $options = array(
-            'credentials' => [
-                'key' => $parameters['AccessKeyID'],
-                'secret' => $parameters['SecretAccessKey'],
-            ],
-            'version' => $parameters['Version']
-        );
+        if(isset($parameters['AccessKeyID'], $parameters['SecretAccessKey'])) {
+            $options = array(
+                'credentials' => [
+                    'key' => $parameters['AccessKeyID'],
+                    'secret' => $parameters['SecretAccessKey'],
+                ]
+            );
+        }
+
+        $options['version'] = $parameters['Version'];
         $options['region'] = $parameters['Region'];
         $httpHost = 's3-' . $parameters['Region'] . '.amazonaws.com';
 
