@@ -147,12 +147,19 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
      */
     public function delete( $filePath )
     {
+        $objects = array();
+        foreach ( (array)$filePath as $filePath )
+        {
+            $objects[] = array( 'Key' => $filePath );
+        }
+
         try
         {
-            $this->s3client->deleteObject(
+            // https://docs.aws.amazon.com/aws-sdk-php/v3/api/class-Aws.S3.S3Client.html
+            $this->s3client->deleteObjects(
                 array(
                     'Bucket' => $this->bucket,
-                    'Key' => $filePath,
+                    'Delete' => array( 'Objects' => $objects ),
                 )
             );
             return true;
