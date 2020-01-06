@@ -25,14 +25,20 @@ $ composer require ezsystems/ezdfs-fsbackend-aws-s3:~2.0@dev ezsystems/ezdfs-fsb
 
 ## Configuration
 
-The handler must first be configured in an `dfsamazons3.ini` override. Region must be set to the region code, as listed on http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region: `eu-west-1`, `us-east-1`... :
+The handler must first be configured in an `dfsamazons3.ini` override. Region must be set to the region code, as listed on http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region: `eu-west-1`, `us-east-1`...
+
+Example `settings/overrride/dfsamazons3.ini.append.php`:
 ```ini
+<?php /* #?ini charset="utf-8"?
+
 [BackendSettings]
-AccessKeyID=
-SecretAccessKey=
-Bucket=
-Region=
-Version=
+AccessKeyID=<credentials.key>
+SecretAccessKey=<credentials.secret>
+Bucket=<your-bucket>
+Region=eu-west-1
+# Version=latest
+
+*/ ?>
 ```
 
 It must then be be set as an additional handler matching one or several path in a `dispatchabledfs.ini` override:
