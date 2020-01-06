@@ -32,6 +32,7 @@ Example `settings/overrride/dfsamazons3.ini.append.php`:
 <?php /* #?ini charset="utf-8"?
 
 [BackendSettings]
+# NOTE: If credentials are not set S3Client will attempt to load them from your environment
 AccessKeyID=<credentials.key>
 SecretAccessKey=<credentials.secret>
 Bucket=<your-bucket>
