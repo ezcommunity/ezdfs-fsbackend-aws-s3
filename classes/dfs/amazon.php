@@ -36,7 +36,8 @@ class eZDFSFileHandlerDFSAmazon implements eZDFSFileHandlerDFSBackendInterface, 
         $ini = eZINI::instance( 'dfsamazons3.ini' );
         $parameters = $ini->group( "BackendSettings" );
 
-        if(isset($parameters['AccessKeyID'], $parameters['SecretAccessKey'])) {
+        // Only set credentials if configured in INI, if not client will attempt to load them from environment.
+        if($parameters['AccessKeyID'] && $parameters['SecretAccessKey']) {
             $options = array(
                 'credentials' => [
                     'key' => $parameters['AccessKeyID'],
