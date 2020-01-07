@@ -20,7 +20,7 @@ An AmazonS3 handler is provided, that can be configured to store images.
 ### Installation using composer
 From the eZ Publish Community/Platform root, run
 ```
-$ composer require ezsystems/ezdfs-fsbackend-aws-s3:~2.0@dev ezsystems/ezdfs-fsbackend-dispatcher:~1.0@beta
+$ composer require ezsystems/ezdfs-fsbackend-aws-s3:~2.0@beta ezsystems/ezdfs-fsbackend-dispatcher:~1.0@beta
 ```
 
 ## Configuration
